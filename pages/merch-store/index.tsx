@@ -1,10 +1,24 @@
-import { Box, Flex, Grid, Text } from '@chakra-ui/react';
-import { NextPage } from 'next';
-import Tees from '../../components/Tees';
-import { TeesData } from '../../constant/';
-import '@fontsource/inter';
+import { Box, Flex, Grid, Text } from "@chakra-ui/react";
+import { NextPage } from "next";
+import Tees from "../../components/Tees";
+import { TeesData } from "../../constant/";
+import "@fontsource/inter";
+import { useState, useEffect } from "react"
 
 const MerchStore: NextPage = () => {
+  const [wWidth, setWWidth] = useState(500);
+  const getWWidth: any = () => {
+    setWWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", getWWidth);
+    return () => {
+      window.removeEventListener("resize", getWWidth);
+    };
+  }, [wWidth]);
+  useEffect(() => {
+    setWWidth(window.innerWidth);
+  }, []);
   return (
     <Box>
       {/* <Box
@@ -20,35 +34,47 @@ const MerchStore: NextPage = () => {
         }
       ></Box> */}
 
-      <Box bg={'#1F1F1F'} width={'auto'}>
+      <Box bg={"#1F1F1F"} width={"auto"}  minHeight={
+            wWidth > 5100
+              ? '2340px'
+              : wWidth > 4000
+              ? '1710px'
+              : wWidth > 2700
+              ? '820px'
+              : wWidth > 1800
+              ? '730px'
+              : wWidth > 1700
+              ? '790px'
+              : '700px'
+          }> 
         <Flex
-          direction={'column'}
-          gap={'10px'}
-          justifyContent={'center'}
-          alignItems={'center'}
+          direction={"column"}
+          gap={"10px"}
+          justifyContent={"center"}
+          alignItems={"center"}
         >
           <Text
-            color={'white'}
-            fontSize={['27px', '27px', '27px', '27px']}
-            fontWeight={'700'}
-            lineHeight={'32.68px'}
-            fontFamily={'inter'}
-            mb={'10px'}
-            mt={'10px'}
+            color={"white"}
+            fontSize={["27px", "27px", "27px", "27px"]}
+            fontWeight={"700"}
+            lineHeight={"32.68px"}
+            fontFamily={"inter"}
+            mb={"10px"}
+            mt={"10px"}
           >
             Featured Products 🔥
-          </Text>{' '}
+          </Text>{" "}
           <Grid
             zIndex={11}
             templateColumns={[
-              'repeat(1, 1fr)',
-              'repeat(1, 1fr)',
-              'repeat(3, 1fr)',
-              'repeat(3, 1fr)',
+              "repeat(1, 1fr)",
+              "repeat(1, 1fr)",
+              "repeat(3, 1fr)",
+              "repeat(3, 1fr)",
             ]}
-            mr={'25px'}
-            gap='50px'
-            mb={'20px'}
+            mr={"25px"}
+            gap={wWidth<3000?"50px":"150px"}
+            mb={"20px"}
           >
             {TeesData.map((tee) => {
               return (

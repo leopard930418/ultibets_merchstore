@@ -1,402 +1,243 @@
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
   Flex,
-  Heading,
-  Icon,
   Image,
   Link,
-  Stack,
   Text,
   useDisclosure,
-} from '@chakra-ui/react';
-import NextLink from 'next/link';
-import Account from './Account';
-import { BsBag } from 'react-icons/bs';
-
-import '@fontsource/nunito';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store';
-import { useRouter } from 'next/router';
+} from "@chakra-ui/react";
+import NextLink from "next/link";
+import "@fontsource/nunito";
+import NavLink from "./Navlink";
 
 const Header = () => {
   const LinkArry = [
     {
-      name: 'Home',
-      href: '/',
+      name: "Home",
+      // href: '/',
+      href: "https://ultibets.vercel.app/",
     },
     {
-      name: 'Bets',
-      href: '/bets',
+      name: "Prediction Markets",
+      href: "https://ultibetsmainapp.vercel.app/bets",
     },
 
     {
-      name: 'Squid Competition',
-      href: '/squid-competition',
+      name: "Squid Bet Competitions",
+      href: "https://ultibetsmainapp.vercel.app/squid-competition",
     },
     {
-      name: 'UtBets Token',
-      href: '/utbets-token',
+      name: "UtBets Token",
+      href: "https://ultibetsmainapp.vercel.app/utbets-token",
     },
     {
-      name: 'Governance',
-      href: '/governance',
+      name: "Governance",
+      href: "https://ultibetsmainapp.vercel.app/governance",
     },
     {
-      name: 'Merch Store',
-      href: '/merch-store',
-      subMenu: [
-        {
-          name: '-All items',
-          href: '/merch-store/all-items',
-        },
-        {
-          name: '-Sale items',
-          href: '/merch-store/sale-items',
-        },
-      ],
+      name: "Merch Store",
+      href: "https://ultibetsmerchstore.vercel.app/merch-store",
     },
     {
-      name: 'FAQ',
-      href: '/faq',
+      name: "FAQ",
+      href: "https://ultibetsmainapp.vercel.app/faq",
     },
   ];
-
-  const cartQuantity = useSelector(
-    (state: RootState) => state.cart.totalQuantity
-  );
-  const router = useRouter();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
 
   return (
-    <Box h={['full', 'unset', 'unset', '100px']} bg='#1F1F1F'>
-      {' '}
+    <Box
+      // position="fixed"
+      zIndex={10}
+      h={["full", "unset", "80px", "80px"]}
+      bg="#1F1F1F"
+    >
+      {" "}
       <Box
-        display={['flex', 'flex', 'block', 'block']}
-        bg='#1F1F1F'
-        h={['full', 'unset', 'unset', '100px']}
-        width={'100%'}
-        justifyContent={'space-between'}
-        alignItems={'center'}
+        display={["flex", "flex", "block", "block"]}
+        bg="#1F1F1F"
+        h={["full", "unset", "80px", "80px"]}
+        width={"100%"}
+        // position={'fixed'}
+        justifyContent={[
+          "space-between",
+          "space-between",
+          "center",
+          "space-between",
+        ]}
+        alignItems={"center"}
       >
         <header>
-          <Flex justifyContent={'space-between'}>
+          <Flex justifyContent={"space-between"}>
             <Flex
-              justifyContent={'center'}
-              alignItems='center'
-              display={['none', 'none', 'flex', 'flex']}
+              justifyContent={"center"}
+              alignItems="center"
+              display={["none", "none", "none", "flex"]}
             >
-              <NextLink href='/' passHref>
+              <NextLink href="/" passHref>
                 <Link>
-                  {' '}
+                  {" "}
                   <Image
-                    src='/images/svgs/with-color-logo.svg'
-                    alt='logo'
-                    width={['200px', 'unset', 'unset', '100%']}
+                    src="/images/svgs/with-color-logo.svg"
+                    alt="logo"
+                    width={["130px", "unset", "130px", "170px"]}
+                    marginLeft={"28px"}
+                    marginTop={"15px"}
+                    marginRight={'20px'}
                   />
+                  <Box
+                    opacity={0.8}
+                    // zIndex={-1}
+                    position={'absolute'}
+                    width={"289px"}
+                    height={"289px"}
+                    marginLeft={["-70px"]}
+                    marginTop={["-160px"]}
+                    background={
+                      "radial-gradient(50% 50% at 50% 50%, rgba(225, 137, 51, 0.5) 0%, rgba(225, 136, 51, 0.5) 0.01%, rgba(190, 59, 49, 0) 100%)"
+                    }
+                  />{" "}
                 </Link>
               </NextLink>
             </Flex>
             <Flex
-              justifyContent={'center'}
-              alignItems='center'
-              display={['block', 'none', 'none', 'none']}
+              width={["100vw", "100vw", "auto", "100%"]}
+              justifyContent={"space-between"}
+              display={["flex", "flex", "flex", "none"]}
+              mt={["20px", "20px", "15px", "unset"]}
             >
-              <NextLink href='/' passHref>
-                <Link>
-                  <Image
-                    src='/images/svgs/logo-mobile-three.png'
-                    alt='logo'
-                    width={['80px', '80px', 'unset', '100%']}
+              <Image
+                src="/images/svgs/with-color-logo.svg"
+                alt="logo"
+                width={["160px", "80px", "150px", "100%"]}
+              />
+              <Box
+                opacity={0.8}
+                // zIndex={-1}
+                 position={'absolute'}
+                width={"289px"}
+                height={"289px"}
+                marginLeft={["-70px"]}
+                marginTop={["-160px"]}
+                background={
+                  "radial-gradient(50% 50% at 50% 50%, rgba(225, 137, 51, 0.5) 0%, rgba(225, 136, 51, 0.5) 0.01%, rgba(190, 59, 49, 0) 100%)"
+                }
+              />{" "}
+              <Flex
+                mr={"10px"}
+                alignItems="center"
+                display={["flex", "flex", "none", "none"]}
+              >
+                {isOpen ? (
+                  <CloseIcon
+                    color={"white"}
+                    fontSize="28px"
+                    onClick={handleToggle}
                   />
-                </Link>
-              </NextLink>
+                ) : (
+                  <HamburgerIcon
+                    color={"white"}
+                    fontSize="30px"
+                    onClick={handleToggle}
+                  />
+                )}
+              </Flex>
             </Flex>
-
-            <Flex
-              alignItems='center'
-              display={['flex', 'flex', 'flex', 'none']}
-              onClick={handleToggle}
-            >
-              {isOpen ? (
-                <CloseIcon
-                  marginLeft={'260px'}
-                  color={'white'}
-                  fontSize='28px'
-                  onClick={handleToggle}
-                />
-              ) : (
-                <HamburgerIcon
-                  marginLeft={'260px'}
-                  color={'white'}
-                  fontSize='30px'
-                  onClick={handleToggle}
-                />
-              )}
-            </Flex>
-
-            <Flex
-              display={['none', 'none', 'none', 'flex']}
-              width={['unset', 'unset', 'unset', '100%']}
-              mt={['unset', 'unset', 'unset', 7]}
-              height={['unset', 'unset', 'unset', 15]}
-              gap={['unset', 'unset', 'unset', 10]}
-              ml={['unset', 'unset', 'unset', '90px']}
-              alignItems={['unset', 'unset', 'unset', 'center']}
-            >
-              {LinkArry.map((item, index) => (
-                <NextLink href={item.href} passHref key={index}>
-                  <Link
-                    color={'white'}
-                    _focus={{
-                      border: 'none',
-                      color: 'red',
-                    }}
-                    _hover={{
-                      color: 'red',
-                    }}
-                    fontSize={'18px'}
-                    fontFamily={'Nunito'}
-                    fontWeight={'bold'}
-                  >
-                    {item.name}
-                  </Link>
-                </NextLink>
-              ))}
-            </Flex>
+            {/* navbar */}
             <Flex>
               <Flex
-                mt={'14px'}
+                display={["none", "none", "flex", "flex"]}
+                width={["unset", "unset", "100%", "100%"]}
+                mt={["unset", "unset", 7, 7]}
+                height={["unset", "unset", 15, 15]}
+                gap={["unset", "unset", "10px", 4, 8]}
+                ml={["unset", "unset", "10px"]}
+                alignItems={["unset", "unset", "center", "center"]}
+              >
+                {LinkArry.map((item, index) => (
+                  <NavLink key={index} name={item.name} href={item.href} />
+                ))}
+              </Flex>
+            </Flex>
+
+            {/* navbar */}
+            {/* <Flex>
+              <Flex
+                mt={['unset', 'unset', '17px', '14px']}
                 mr={'10px'}
-                display={['none', 'none', 'none', 'flex']}
+                display={['none', 'none', 'flex', 'flex']}
                 gap={'10px'}
               >
                 <Account />
               </Flex>{' '}
+            </Flex> */}
+            {/* launch app button */}
+            <Flex
+              justifyContent={["center"]}
+              width={["200px", "unset", "200px", "250px"]}
+            >
+               <Image
+                src="/images/svgs/bg/logged_badge.svg"
+                alt="logo"
+                width={["26px", "26px", "13px", "20px"]}
+                display={["none", "none", "flex", "flex"]}
+                position={"absolute"}
+                ml={['-48','-48','-56','-56']}
+                mt={'7'}
+              />
+              <Flex
+                mt={"18px"}
+                display={["none", "none", "flex", "flex"]}
+                // mr={["unset", "unset", "unset", "40px"]}
+              >
+                <a href="https://ultibetsmainapp.vercel.app/bets">
+                  <Button
+                    height={"41px"}
+                    width={["162px", "162px", "120px", "140px", "162px"]}
+                    borderRadius={"34px"}
+                    border={"1px solid #FC541C"}
+                    background={"unset"}
+                    _hover={{ background: "#FC541C" }}
+                  >
+                    <Text
+                      fontFamily={"Nunito"}
+                      fontSize={["14px", "14px", "14px", "18px"]}
+                      fontWeight={"700"}
+                      lineHeight={"25px"}
+                      letterSpacing={"0em"}
+                      textAlign={"left"}
+                      color={"#FFFFFF"}
+                    >
+                      Launch App
+                    </Text>
+                  </Button>
+                </a>
+              </Flex>{" "}
             </Flex>
+            {/* launch app button */}
           </Flex>
         </header>
       </Box>
-      <Box>
-        {' '}
-        <Flex
-          justifyContent={[
-            'space-between',
-            'space-between',
-            'space-between',
-            'none',
-          ]}
-          gap={['10px', '10px', '10px', '10px']}
-          direction={['column', 'column', 'column', 'column']}
-          display={[
-            isOpen ? 'flex' : 'none',
-            isOpen ? 'flex' : 'none',
-            isOpen ? 'flex' : 'none',
-            'none',
-          ]}
-          p={['10px', '10px', '10px', '10px']}
-          width={{ base: 'full', md: 'auto' }}
-          alignItems='start'
-          flexGrow={1}
-        >
-          {LinkArry.slice(0, 6).map((item, index) => (
-            <div key={index}>
-              <NextLink href={item.href} passHref>
-                <Link
-                  color={'white'}
-                  _focus={{
-                    border: 'none',
-                    color: 'red',
-                  }}
-                  _hover={{
-                    color: 'red',
-                  }}
-                  _selected={{
-                    color: 'red',
-                  }}
-                  onClick={handleToggle}
-                  fontSize={'18px'}
-                  fontWeight={'bold'}
-                  fontFamily={'Nunito'}
-                >
-                  {item.name}
-                </Link>
-              </NextLink>
-              <Flex ml={'25px'} direction='column' gap={'10px'}></Flex>
-            </div>
+      <Flex
+        display={[isOpen ? "flex" : "none", "none", "none", "none"]}
+        gap={"10px"}
+        width={"100%"}
+      >
+        {" "}
+        <Flex direction={"column"}>
+          {LinkArry.map((item, index) => (
+            <NavLink
+              key={index}
+              href={item.href}
+              name={item.name}
+              onClose={onClose}
+            />
           ))}
-          <Flex ml={'25px'} direction='column' gap={'10px'}>
-            <NextLink href='/merch-store/all-items' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                _selected={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                fontWeight={'normal'}
-                onClick={handleToggle}
-              >
-                - All Items
-              </Link>
-            </NextLink>
-
-            <NextLink href='/merch-store/men-tshirt' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                _selected={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                fontWeight={'normal'}
-                onClick={handleToggle}
-              >
-                - Men T-Shirts
-              </Link>
-            </NextLink>
-            <NextLink href='/merch-store/women-tshirt' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                fontWeight={'normal'}
-                onClick={handleToggle}
-              >
-                - Women T-Shirts{' '}
-              </Link>
-            </NextLink>
-
-            <NextLink href='/merch-store/hoodie' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                fontWeight={'normal'}
-                onClick={handleToggle}
-              >
-                - Hoodies
-              </Link>
-            </NextLink>
-            <NextLink href='/merch-store/cap' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                fontWeight={'normal'}
-                onClick={handleToggle}
-              >
-                - Caps{' '}
-              </Link>
-            </NextLink>
-            <NextLink href='/merch-store/mug' passHref>
-              <Link
-                color={'white'}
-                _focus={{
-                  border: 'none',
-                  color: 'red',
-                }}
-                _hover={{
-                  color: 'red',
-                }}
-                fontSize={'12px'}
-                onClick={handleToggle}
-                fontWeight={'normal'}
-              >
-                - Mug{' '}
-              </Link>
-            </NextLink>
-          </Flex>
-          <NextLink href='/' passHref>
-            <Link
-              color={'white'}
-              _focus={{
-                border: 'none',
-                color: 'red',
-              }}
-              _hover={{
-                color: 'red',
-              }}
-              fontSize={'md'}
-              fontWeight={'bold'}
-              onClick={handleToggle}
-            >
-              FAQ
-            </Link>
-          </NextLink>
-          {cartQuantity && (
-            <Flex
-              cursor={'pointer'}
-              width={['100px', '90px', '100px', '130px']}
-              height={['40px', '40px', '50px', '50px']}
-              gap={'10px'}
-              justifyContent={'space-evenly'}
-              alignItems={'center'}
-              borderRadius={['15px', '15px', '15px', '20px']}
-              border='1px solid #FC541C'
-              backgroundColor={'#1F1F1F'}
-              color={'white'}
-              _hover={{
-                backgroundColor: '#FC541C',
-              }}
-              _selected={{
-                backgroundColor: '#FC541C',
-              }}
-              onClick={() => router.push('/checkout')}
-            >
-              <Text mt={'5px'} fontSize={['16px', '14px', '18px', '18px']}>
-                {' '}
-                Cart
-              </Text>
-              <Icon as={BsBag} fontSize={['26px', '18px', '18px', '30px']} />
-              <Text
-                position={'absolute'}
-                ml={['50px', '10px', '10px', '62px']}
-                mt={['6px', '0px', '0px', '8px']}
-                fontSize={['15px', '14px', '18px', '16px']}
-                fontWeight={'extrabold'}
-                color={'white'}
-              >
-                {cartQuantity}
-              </Text>
-            </Flex>
-          )}
-          <Account />
         </Flex>
-      </Box>
+      </Flex>
     </Box>
   );
 };
