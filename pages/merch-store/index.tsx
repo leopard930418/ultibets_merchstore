@@ -157,15 +157,15 @@ const MerchStore: NextPage = () => {
           minHeight={
             wWidth > 5100
               ? "2340px"
-              : wWidth > 4000
+              : wWidth >= 4000
               ? "1710px"
-              : wWidth > 2700
+              : wWidth >= 2700
               ? "1080px"
-              : wWidth > 1800
+              : wWidth >= 1800
               ? "760px"
-              : wWidth > 1700
+              : wWidth >= 1700
               ? "600px"
-              : "510px"
+              : "610px"
           }
         >
           <Flex
