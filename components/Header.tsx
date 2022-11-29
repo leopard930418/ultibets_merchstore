@@ -179,15 +179,7 @@ const Header = () => {
               justifyContent={["center"]}
               width={["200px", "unset", "200px", "250px"]}
             >
-               <Image
-                src="/images/svgs/bg/logged_badge.svg"
-                alt="logo"
-                width={["26px", "26px", "13px", "20px"]}
-                display={["none", "none", "flex", "flex"]}
-                position={"absolute"}
-                ml={['-48','-48','-56','-56']}
-                mt={'7'}
-              />
+               
               <Flex
                 mt={"18px"}
                 display={["none", "none", "flex", "flex"]}
