@@ -86,12 +86,12 @@ const Header = () => {
                     width={["130px", "unset", "130px", "170px"]}
                     marginLeft={"28px"}
                     marginTop={"15px"}
-                    marginRight={'20px'}
+                    marginRight={"20px"}
                   />
                   <Box
                     opacity={0.8}
                     // zIndex={-1}
-                    position={'absolute'}
+                    position={"absolute"}
                     width={"289px"}
                     height={"289px"}
                     marginLeft={["-70px"]}
@@ -107,20 +107,21 @@ const Header = () => {
               width={["100vw", "100vw", "auto", "100%"]}
               justifyContent={"space-between"}
               display={["flex", "flex", "flex", "none"]}
-              mt={["20px", "20px", "15px", "unset"]}
             >
               <Image
-                src="/images/svgs/with-color-logo.svg"
+                src="/images/svgs/bg/logo-vector.svg"
                 alt="logo"
-                width={["160px", "80px", "150px", "100%"]}
+                ml={"4"}
+                mt={"4"}
+                width={["80%"]}
               />
               <Box
                 opacity={0.8}
                 // zIndex={-1}
-                 position={'absolute'}
+                position={"absolute"}
                 width={"289px"}
                 height={"289px"}
-                marginLeft={["-70px"]}
+                marginLeft={["-100px"]}
                 marginTop={["-160px"]}
                 background={
                   "radial-gradient(50% 50% at 50% 50%, rgba(225, 137, 51, 0.5) 0%, rgba(225, 136, 51, 0.5) 0.01%, rgba(190, 59, 49, 0) 100%)"
@@ -179,7 +180,6 @@ const Header = () => {
               justifyContent={["center"]}
               width={["200px", "unset", "200px", "250px"]}
             >
-               
               <Flex
                 mt={"18px"}
                 display={["none", "none", "flex", "flex"]}

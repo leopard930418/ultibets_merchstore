@@ -162,7 +162,7 @@ const MerchStore: NextPage = () => {
               : wWidth >= 2700
               ? "1080px"
               : wWidth >= 1800
-              ? "760px"
+              ? "860px"
               : wWidth >= 1700
               ? "680px"
               : "610px"
